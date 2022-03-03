@@ -25,7 +25,7 @@ Telegram: @XopMC
 
 or open "New issue" on GitHub.
 
-# !!! Attention ... if you are making a base of words / passwords or hashes160 on Windows - be sure to remove the empty line characters `\r` (for example, using Notepad++) ... without this BF will not see matches !!!
+# !!! Attention ... if you are making a base of words / passwords or hashes160 on Windows - be sure to remove the empty line characters `\r` and `\n` (for example, using Notepad++) ... without this BF will not see matches !!!
 
 Russian
 -------
@@ -44,7 +44,7 @@ Telegram : @XopMC
 
 Буду рад любой обратной связи!
 
-# !!! Внимание... если делаете базу слов/паролей или хешей160 на Windows - обязательно удаляйте символы пустой строки `\r` (например с помощью Notepad++)... без этого BF не увидит совпадений !!!
+# !!! Внимание... если делаете базу слов/паролей или хешей160 на Windows - обязательно удаляйте символы пустой строки `\r` и `\n`(например с помощью Notepad++)... без этого BF не увидит совпадений !!!
 
 # (Так же сделал перевод описания использования программы см [Usage RUS](https://github.com/XopMC/brainflayer-Windows#usage-rus-использование))
 
