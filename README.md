@@ -1,13 +1,15 @@
 Description/ Описание
 ===========
 
-# 28.05.2022 Big Bloom update!!!   
+# 28.05.2022 Big Bloom update!!! 
+![image](https://user-images.githubusercontent.com/89750173/170828809-0bbb5c0a-7a57-4c61-8277-f75c4655fa6a.png)
 * Changed bloom filter size.
 * From 512MB to 2.1GB !!!
 * Ideal for ~ 3GB bases  
 ===========
 
 # 28.05.2022 Big Bloom обновление!!!   
+![image](https://user-images.githubusercontent.com/89750173/170828809-0bbb5c0a-7a57-4c61-8277-f75c4655fa6a.png)
 * Изменён размер создаваемого блюм фильтра.
 * с 512Мб до 2.1Гб !!!
 * Идеально для баз размером ~ 3Гб  
@@ -28,8 +30,10 @@ English
 This software will allow you to use brainflayer functions directly in Windows
 
 You can also use this program to search through the database of words / passwords.
-And you can use third-party generators ... BUT I have not yet figured out how to display information on the screen when using generators ...
-brainflayer works with them, but displays information only at the end of the generator's work (see screenshot).
+And you can use third-party generators ... ~~BUT I have not yet figured out how to display information on the screen when using generators ...
+brainflayer works with them, but displays information only at the end of the generator's work (see screenshot).~~  
+
+Windows Version work with third-party generators only then your using program from CMD(not PowerShell)!!!  
 ![Brain](https://user-images.githubusercontent.com/89750173/144838729-8cbd56a6-27ad-4a0b-a3b6-a7ba2881420a.PNG)
 
 If you know or understand how to fix it, please write to me
@@ -45,8 +49,10 @@ Russian
 Этот софт позволит вам использовать функции Brainflayer прямо в Windows. 
 
 Вы так же можете использовать эту программу для поиска через базу слов/паролей
-И можете использовать сторонние генераторы... НО я пока не понял, как при использовании генераторов выводить информацию на экран...
-brainflayer работает ними, но информацию выводит только по окончанию работы генератора (см. скриншот).
+И можете использовать сторонние генераторы... ~~НО я пока не понял, как при использовании генераторов выводить информацию на экран...
+brainflayer работает ними, но информацию выводит только по окончанию работы генератора (см. скриншот).~~  
+
+Windows версия работает со стронними генераторами только, если запускать программу из CMD (не из PowerShell)!!!  
 ![Brain](https://user-images.githubusercontent.com/89750173/144838729-8cbd56a6-27ad-4a0b-a3b6-a7ba2881420a.PNG)
 
 Если вы знаете или поняли как это исправить, прошу написать мне
