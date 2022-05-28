@@ -1,6 +1,19 @@
 Description/ Описание
 ===========
 
+# 28.05.2022 Big Bloom update!!!   
+* Changed bloom filter size.
+* From 512MB to 2.1GB !!!
+* Ideal for ~ 3GB bases  
+===========
+
+# 28.05.2022 Big Bloom обновление!!!   
+* Изменён размер создаваемого блюм фильтра.
+* с 512Мб до 2.1Гб !!!
+* Идеально для баз размером ~ 3Гб  
+===========
+
+
 It took me 7 hours and a bunch of nerve cells ...
 
 and I managed to compile brainflayer for Windows
