@@ -675,10 +675,14 @@ int main(int argc, char **argv) {
   }
 
   if (iopt) {
+
+
     if ((ifile = fopen(iopt, "r")) == NULL) {
       bail(1, "failed to open '%s' for reading: %s\n", iopt, strerror(errno));
     }
     // increases readahead window, don't really care if it fails
+    //ifile.erase( std::remove(ifile.begin(), ifile.end(), '\r'), ifile.end() );
+
     posix_fadvise(fileno(ifile), 0, 0, POSIX_FADV_SEQUENTIAL);
   }
 
@@ -851,7 +855,7 @@ int main(int argc, char **argv) {
             " rate: %9.2f p/s"
             " found: %5zu/%-10zu"
             " elapsed: %8.3f s"
-            "\nCOMPILED BY @XopMC for t.me/brythbit"
+            " COMPILED BY @XopMC for t.me/brythbit"
             "\033[0G",
             ilines_rate_avg,
             olines,
