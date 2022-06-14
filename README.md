@@ -1,6 +1,21 @@
 Description/ Описание
 ===========
 
+# 14.06.2022 NO \r update!!! 
+* NO NEED TO REMOVE \r character from words\phrases file!!!  
+* FINALLY, 100% CORRECTLY WORKS WITH CUSTOM GENERATORS  
+* Thank you so much ![@kenorb](https://github.com/kenorb) for your help  
+![изображение](https://user-images.githubusercontent.com/89750173/173538557-8ed9c0e5-3d64-475c-992a-c250b03eaee2.png)
+
+------
+
+# 14.06.2022 обновление "Без \r"!!!   
+* НЕ НУЖНО БОЛЬШЕ УДАЛЯТЬ СИМВОЛ \r из файла со словами/ фразами!!!
+* НАКОНЕЦ-ТО, 100% КОРРЕКТНАЯ РАБОТА СО СТОРОННИМИ ГЕНЕРАТОРАМИ  
+* Большое спасибо ![@kenorb](https://github.com/kenorb) за помощь!  
+![изображение](https://user-images.githubusercontent.com/89750173/173538557-8ed9c0e5-3d64-475c-992a-c250b03eaee2.png)
+------
+
 # 28.05.2022 Big Bloom update!!! 
 ![image](https://user-images.githubusercontent.com/89750173/170828809-0bbb5c0a-7a57-4c61-8277-f75c4655fa6a.png)
 * Changed bloom filter size.
@@ -42,7 +57,7 @@ Telegram: @XopMC
 
 or open "New issue" on GitHub.
 
-# !!! Attention ... if you are making a base of words / passwords or hashes160 on Windows - be sure to remove the empty line character `\r` (for example, using Notepad++) ... without this BF will not see matches !!!
+# !!! Attention ... ~~if you are making a base of words / passwords or hashes160 on Windows - be sure to remove the empty line character `\r` (for example, using Notepad++) ... without this BF will not see matches !!!~~ 14.06.2022 update -works correctly with \r
 
 Russian
 -------
@@ -63,7 +78,7 @@ Telegram : @XopMC
 
 Буду рад любой обратной связи!
 
-# !!! Внимание... если делаете базу слов/паролей или хешей160 на Windows - обязательно удаляйте символ пустой строки `\r`(например с помощью Notepad++)... без этого BF не увидит совпадений !!!
+# !!! Внимание... ~~если делаете базу слов/паролей или хешей160 на Windows - обязательно удаляйте символ пустой строки `\r`(например с помощью Notepad++)... без этого BF не увидит совпадений !!!~~ 14.06.2022 обновление - работает корректно с \r
 
 # (Так же сделал перевод описания использования программы см [Usage RUS](https://github.com/XopMC/brainflayer-Windows#usage-rus-использование))
 
