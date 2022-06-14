@@ -1,5 +1,12 @@
 Description/ Описание
 ===========
+# !!!All executable files were deleted at the request of the copyright holder!!!  
+# !!!Все исполняемые файлы удалены по требованию правообладателя!!!  
+
+ But you can compile it by yourself with ![CYGWIN](https://www.cygwin.com/setup-x86_64.exe)  
+ Но вы можете скомпилировать самостоятельно с помощью ![CYGWIN](https://www.cygwin.com/setup-x86_64.exe)  
+
+
 
 # 14.06.2022 NO \r update!!! 
 * NO NEED TO REMOVE \r character from words\phrases file!!!  
