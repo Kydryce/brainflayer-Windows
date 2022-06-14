@@ -3,8 +3,8 @@ Description/ Описание
 # !!!All executable files were deleted at the request of the copyright holder!!!  
 # !!!Все исполняемые файлы удалены по требованию правообладателя!!!  
 
- But you can compile it by yourself with ![CYGWIN](https://www.cygwin.com)  
- Но вы можете скомпилировать самостоятельно с помощью ![CYGWIN](https://www.cygwin.com)  
+ But you can compile it by yourself with https://www.cygwin.com   
+ Но вы можете скомпилировать самостоятельно с помощью https://www.cygwin.com   
 
 
 
