@@ -23,19 +23,6 @@ Description/ Описание
 ![изображение](https://user-images.githubusercontent.com/89750173/173538557-8ed9c0e5-3d64-475c-992a-c250b03eaee2.png)
 ------
 
-# 28.05.2022 Big Bloom update!!! 
-![image](https://user-images.githubusercontent.com/89750173/170828809-0bbb5c0a-7a57-4c61-8277-f75c4655fa6a.png)
-* Changed bloom filter size.
-* From 512MB to 2.1GB !!!
-* Ideal for ~ 3GB bases
-------
-
-# 28.05.2022 Big Bloom обновление!!!   
-![image](https://user-images.githubusercontent.com/89750173/170828809-0bbb5c0a-7a57-4c61-8277-f75c4655fa6a.png)
-* Изменён размер создаваемого блюм фильтра.
-* с 512Мб до 2.1Гб !!!
-* Идеально для баз размером ~ 3Гб
-------
 
 
 It took me 7 hours and a bunch of nerve cells ...
