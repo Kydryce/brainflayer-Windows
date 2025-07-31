@@ -1,0 +1,42 @@
+name: Build Brainflayer Windows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: git make mingw-w64-x86_64-gcc mingw-w64-x86_64-openssl mingw-w64-x86_64-libressl
+
+      - name: Patch brainflayer.c for Windows
+        shell: msys2 {0}
+        run: |
+          sed -i '/#include <sys\/wait.h>/d' brainflayer.c
+
+      - name: Build brainflayer
+        shell: msys2 {0}
+        run: |
+          make clean
+          make
+
+      - name: Upload EXEs
+        uses: actions/upload-artifact@v3
+        with:
+          name: brainflayer-windows-binaries
+          path: |
+            brainflayer.exe
+            hex2blf.exe
+            blfchk.exe
+            ecmtabgen.exe
+            hexln.exe
+            filehex.exe
