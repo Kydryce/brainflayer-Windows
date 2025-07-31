@@ -1,0 +1,57 @@
+CC = gcc
+CFLAGS = -O3 -Wall -I/mingw64/include -Isecp256k1/include
+LDFLAGS = -L/mingw64/lib
+LDLIBS = -lssl -lcrypto
+
+SECP256K1_OBJS = \
+	secp256k1/src/secp256k1.o \
+	secp256k1/src/hash.o \
+	secp256k1/src/util.o \
+	secp256k1/src/ecdsa.o \
+	secp256k1/src/ecmult.o \
+	secp256k1/src/ecmult_gen.o \
+	secp256k1/src/field_5x52.o \
+	secp256k1/src/group.o \
+	secp256k1/src/num_gmp.o \
+	secp256k1/src/scalar_4x64.o \
+	secp256k1/src/impl/ecmult_impl.o \
+	secp256k1/src/impl/ecmult_gen_impl.o \
+	secp256k1/src/impl/field_5x52_impl.o \
+	secp256k1/src/impl/group_impl.o \
+	secp256k1/src/impl/hash_impl.o \
+	secp256k1/src/impl/scalar_4x64_impl.o \
+	secp256k1/src/impl/util_impl.o
+
+OBJS_COMMON = \
+	hex.o bloom.o mmapf.o hsearchf.o ec_pubkey_fast.o ripemd160_256.o dldummy.o \
+	algo/brainv2.o algo/brainwalletio.o algo/keccak.o algo/sha3.o algo/warpwallet.o
+
+all: brainflayer hex2blf blfchk ecmtabgen hexln filehex
+
+brainflayer: brainflayer.o $(OBJS_COMMON) $(SECP256K1_OBJS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+hex2blf: hex2blf.o bloom.o
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+blfchk: blfchk.o bloom.o mmapf.o
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+ecmtabgen: ecmtabgen.o ec_pubkey_fast.o $(SECP256K1_OBJS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+hexln: hexln.o
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+filehex: filehex.o
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+clean:
+	rm -f brainflayer hexln hex2blf blfchk ecmtabgen filehex *.o algo/*.o secp256k1/src/*.o
+
+crack: all
+	@echo "[*] Generating Bloom filter from targets.txt..."
+	./hex2blf.exe targets.txt targets.blf
+	@echo "[*] Running brainflayer with wordlist.txt..."
+	./brainflayer.exe -v -i wordlist.txt -o hits.txt -a targets.blf
+	@echo "[*] Crack complete. Results saved to hits.txt"
