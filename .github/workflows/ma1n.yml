@@ -24,11 +24,10 @@ jobs:
           # Remove Linux-only headers
           sed -i '/#include <sys\/wait.h>/d' brainflayer.c
           sed -i '/#include <sys\/sysinfo.h>/d' brainflayer.c
-          # Comment out sysinfo() calls so they don't compile
           sed -i 's/sysinfo(/\/\/ sysinfo(/g' brainflayer.c
 
-          # Overwrite Makefile with direct secp256k1 build (no autotools)
-          cat > Makefile << 'EOF'
+          # Overwrite Makefile
+          cat << 'EOF' > Makefile
 CC = gcc
 CFLAGS = -O3 -Wall -I/mingw64/include -Isecp256k1/include
 LDFLAGS = -L/mingw64/lib
