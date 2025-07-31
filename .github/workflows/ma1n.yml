@@ -26,6 +26,10 @@ jobs:
           sed -i '/#include <sys\/sysinfo.h>/d' brainflayer.c
           sed -i 's/sysinfo(/\/\/ sysinfo(/g' brainflayer.c
 
+          # Fix signed/unsigned char* mismatches for MinGW
+          sed -i 's/hex(batch_priv\[i\], 32, batch_line\[i\], 65);/hex(batch_priv[i], 32, (unsigned char *)batch_line[i], 65);/' brainflayer.c
+          sed -i 's/fprintresult(ofile, &hash160, pubhashfn\[j\].id, modestr, batch_line\[i\]);/fprintresult(ofile, &hash160, pubhashfn[j].id, modestr, (unsigned char *)batch_line[i]);/' brainflayer.c
+
           # Overwrite Makefile
           cat << 'EOF' > Makefile
 CC = gcc
