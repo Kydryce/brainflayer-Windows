@@ -18,10 +18,45 @@ jobs:
           msystem: MINGW64
           install: git make mingw-w64-x86_64-gcc mingw-w64-x86_64-openssl mingw-w64-x86_64-libressl
 
-      - name: Patch brainflayer.c for Windows
+      - name: Patch source for Windows build
         shell: msys2 {0}
         run: |
+          # Remove POSIX-only include
           sed -i '/#include <sys\/wait.h>/d' brainflayer.c
+          
+          # Replace secp256k1 build section in Makefile to avoid autogen.sh
+          sed -i 's/^cd secp256k1.*//g' Makefile
+          sed -i 's/^.*autogen\.sh.*//g' Makefile
+          sed -i 's/^.*configure.*//g' Makefile
+          sed -i 's/^.*make$$//g' Makefile
+
+          # Append direct secp256k1 object build
+          echo "SECP256K1_OBJS = \\" >> Makefile
+          echo "  secp256k1/src/secp256k1.o \\" >> Makefile
+          echo "  secp256k1/src/hash.o \\" >> Makefile
+          echo "  secp256k1/src/util.o \\" >> Makefile
+          echo "  secp256k1/src/ecdsa.o \\" >> Makefile
+          echo "  secp256k1/src/ecmult.o \\" >> Makefile
+          echo "  secp256k1/src/ecmult_gen.o \\" >> Makefile
+          echo "  secp256k1/src/field_5x52.o \\" >> Makefile
+          echo "  secp256k1/src/group.o \\" >> Makefile
+          echo "  secp256k1/src/num_gmp.o \\" >> Makefile
+          echo "  secp256k1/src/scalar_4x64.o \\" >> Makefile
+          echo "  secp256k1/src/impl/ecmult_impl.o \\" >> Makefile
+          echo "  secp256k1/src/impl/ecmult_gen_impl.o \\" >> Makefile
+          echo "  secp256k1/src/impl/field_5x52_impl.o \\" >> Makefile
+          echo "  secp256k1/src/impl/group_impl.o \\" >> Makefile
+          echo "  secp256k1/src/impl/hash_impl.o \\" >> Makefile
+          echo "  secp256k1/src/impl/scalar_4x64_impl.o \\" >> Makefile
+          echo "  secp256k1/src/impl/util_impl.o" >> Makefile
+
+          # Add include paths for MSYS2
+          echo "CFLAGS += -Isecp256k1/include -I/mingw64/include" >> Makefile
+          echo "LDFLAGS += -L/mingw64/lib" >> Makefile
+          echo "LDLIBS = -lssl -lcrypto" >> Makefile
+
+          # Ensure brainflayer target links secp256k1
+          sed -i 's/^brainflayer: \(.*\)/brainflayer: \1 \$(SECP256K1_OBJS)/' Makefile
 
       - name: Build brainflayer
         shell: msys2 {0}
@@ -40,3 +75,4 @@ jobs:
             ecmtabgen.exe
             hexln.exe
             filehex.exe
+
